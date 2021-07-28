@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiserviceService } from '../services/apiservice.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+touristicPlaces = {}
+touristicActivities = {}
+  constructor(public service:ApiserviceService) {
+    this.service.getAllTouristicPlaces().subscribe(res =>{
+      this.touristicPlaces = res
+    })
 
-  constructor() {}
+    this.service.getTouristicActivities().subscribe(res =>{
+      this.touristicActivities = res
+    })
+
+  }
+
+
 
 }
