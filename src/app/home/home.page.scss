@@ -1,27 +1,27 @@
-#container {
-  text-align: center;
-
+.cards-places{
+  border-radius: 10px;
+}
+.slide-text{
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  text-align: center;
+  color: white;
+  font-family: 'Montserrat';
+  bottom: 30px;
+  font-weight: 700;
+  left: 10px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.slide-subtitle{
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-family: 'Montserrat';
+  bottom: 10px;
+  left: 10px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.weather{
+  font-family: 'Montserrat';
+  color: #212121;
+  margin-top: -5%;
 }

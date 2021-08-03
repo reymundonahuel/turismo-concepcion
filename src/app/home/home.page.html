@@ -17,7 +17,48 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <div >
+  <h1 style="margin-top: -5%;">Concepcion del Uruguay</h1>
+  <p style="text-transform: capitalize;margin-top: -1%;">{{ descriptionWeather }}</p>
+</div>
+<ion-grid class="weather">
+  <ion-row>
+    <ion-col size="6">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <img [src]="logoweather" style="margin-left: 15%;">
+          </ion-col>
+          <ion-col size="6">
+            <h1 style="font-size:35px;margin-top: 23%;"> <b>{{ currentWeather }}°</b></h1>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+    <ion-col size="6" style="margin-top: 3%;">
+      <div style="text-align: left;">
+      
+      <h2 style="font-size: 16px;">Presion: <b>{{ pressure }} hPa</b></h2>
+      <h3 style="font-size: 16px;">Humedad: <b>{{ humidity }}</b></h3>
+      <h3 style="font-size: 16px;">Viento: <b>{{ wind }}m/s</b></h3>
+    </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  
+
+  <br>
   <h4 style="font-family: 'Montserrat', sans-serif;margin-top: -5%;margin-left: 2%;">Lugares turísticos</h4>
   <hr style="width: 90%;float: left;border-bottom: solid 3px #2196f3;margin-top: -1%;">
+  <br>
+  <ion-slides mode="ios" [options]="slideOptsTwo">
+    <ion-slide *ngFor="let s of touristicPlaces">
+      <ion-card class="cards-places">
+          <ion-img [src]="s.imgcover" style="border-radius: 10px;" ></ion-img>
+          <span class="slide-text">{{ s.name }}</span>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+ 
 
 </ion-content>

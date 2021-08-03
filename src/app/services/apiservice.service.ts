@@ -57,7 +57,7 @@ export class ApiserviceService {
 
   /* Clima */
   getWeather(){
-    return this.http.get(this.url + '/weather')
+    return this.http.get('https://api.openweathermap.org/data/2.5/weather?id=3435264&units=metric&lang=sp&appid=60ebd6a1e520851d0ac5e23fb9533e53')
   }
 
   /* Comercios */
