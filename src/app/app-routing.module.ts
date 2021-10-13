@@ -16,11 +16,11 @@ const routes: Routes = [
     loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesPageModule)
   },
   {
-    path: 'touristicplaces',
+    path: 'touristicplaces/:id',
     loadChildren: () => import('./touristicplaces/touristicplaces.module').then( m => m.TouristicplacesPageModule)
   },
   {
-    path: 'touristicactivities',
+    path: 'touristicactivities/:id',
     loadChildren: () => import('./touristicactivities/touristicactivities.module').then( m => m.TouristicactivitiesPageModule)
   },
   {
@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./commerces/commerces.module').then( m => m.CommercesPageModule)
   },
   {
-    path: 'commercedetail',
+    path: 'commercedetail/:id',
     loadChildren: () => import('./commercedetail/commercedetail.module').then( m => m.CommercedetailPageModule)
   },
   {

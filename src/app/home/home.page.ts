@@ -11,8 +11,8 @@ import { IonSlides } from '@ionic/angular';
 export class HomePage {
 @ViewChild(IonSlides) slides: IonSlides;
 touristicPlaces:any
-touristicActivities = {}
-category = {}
+touristicActivities:any
+category:any
 weather
 currentWeather
 pressure
@@ -34,16 +34,13 @@ slideOptsTwo = {
     };
     this.service.getAllTouristicPlaces().subscribe(res =>{
       this.touristicPlaces = res
-      console.log(res)
+      this.touristicPlaces = this.touristicPlaces.sort(((a, b) => a.position - b.position))
     })
 
     this.service.getTouristicActivities().subscribe(res =>{
       this.touristicActivities = res
     })
 
-    this.service.GetCategories().subscribe(res =>{
-      this.category = res
-    })
 
     this.service.getWeather().subscribe(res =>{
       this.weather = res

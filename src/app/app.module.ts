@@ -13,6 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/storage';
+/* import { SocialSharing } from '@ionic-native/social-sharing/ngx'; */
+
 
 
 /* Firebase Config */
@@ -29,7 +31,7 @@ const config = {
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule,AngularFireStorageModule,HttpClientModule,AngularFireModule.initializeApp(config),
+  imports: [BrowserModule ,IonicModule.forRoot(),AngularFirestoreModule,AngularFireStorageModule,HttpClientModule,AngularFireModule.initializeApp(config),
     AngularFirestoreModule,AppRoutingModule],
   providers: [AngularFireStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

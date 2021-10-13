@@ -8,7 +8,7 @@
           </ion-col>
           <ion-col size="4"></ion-col>
           <ion-col size="2">
-            <ion-icon style="float: right;font-size: 26px;margin-top: 50%;" name="bookmark" color="danger"></ion-icon>
+            <ion-icon style="float: right;font-size: 26px;margin-top: 50%;" name="bookmark" color="danger" [routerLink]="['/bookmark']" routerLinkActive="router-link-active"  ></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -53,12 +53,30 @@
   <br>
   <ion-slides mode="ios" [options]="slideOptsTwo">
     <ion-slide *ngFor="let s of touristicPlaces">
-      <ion-card class="cards-places">
-          <ion-img [src]="s.imgcover" style="border-radius: 10px;" ></ion-img>
+      <ion-card class="cards-places" [routerLink]="['/touristicplaces',s.id]">
+          <ion-img [src]="s.imgportada" style="border-radius: 10px;" ></ion-img>
           <span class="slide-text">{{ s.name }}</span>
       </ion-card>
     </ion-slide>
   </ion-slides>
+
+  <!-- Comercios -->
+  <h4 style="font-family: 'Montserrat', sans-serif;text-align: center;">Comercios</h4>
+
+<br>
+<br>
+  <h4 style="font-family: 'Montserrat', sans-serif;margin-top: -5%;margin-left: 2%;">Actividades Turisticas</h4>
+  <hr style="width: 90%;float: left;border-bottom: solid 3px #2196f3;margin-top: -1%;">
+  <br>
+  <ion-slides mode="ios">
+    <ion-slide *ngFor="let d of touristicActivities">
+      <ion-card class="cards-activities" [routerLink]="['/touristicactivities',d.id]" *ngIf="d.visible == true">
+          <ion-img [src]="d.coverimg" style="border-radius: 5px;filter: brightness(0.8);" ></ion-img>
+          <span class="slide-text">{{ d.name }}<ion-badge color="primary" mode="ios">{{ d.price }}</ion-badge></span>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
  
 
 </ion-content>

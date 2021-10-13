@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>bookmark</ion-title>
+   <ion-buttons slot="start">
+     <ion-back-button defaultHref="home"></ion-back-button>
+   </ion-buttons>
+    <ion-title>Guardado</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list>
+    <ion-list-header color="primary">
+      <ion-label>Lugares Turisticos</ion-label>
+    </ion-list-header>
+    <div *ngFor="let s of tasks">
+      <ion-item *ngIf="s.type == 2" >
+        <ion-label> <div [routerLink]="['/touristicplaces',s.placeId]"><b >{{ s.name }}</b> </div><ion-icon style="float: right;font-size: 21px;" name="trash" color="danger" (click)="delete(s)"></ion-icon></ion-label>
+      </ion-item>
+    </div>
+
+    <ion-list-header color="tertiary">
+      <ion-label>Actividades Turisticas</ion-label>
+    </ion-list-header>
+    <div *ngFor="let s of tasks">
+      <ion-item *ngIf="s.type == 1">
+        <ion-label details>{{ s.name }} <ion-icon style="float: right;font-size: 21px;" name="trash" color="danger"></ion-icon></ion-label>
+      </ion-item>
+    </div>
+
+    <ion-list-header color="danger">
+      <ion-label>Comercios</ion-label>
+    </ion-list-header>
+    <div *ngFor="let s of tasks">
+      <ion-item *ngIf="s.type == 0">
+        <ion-label details>{{ s.name }} <ion-icon style="float: right;font-size: 21px;" name="trash" color="danger"></ion-icon></ion-label>
+      </ion-item>
+    </div>
+   
+  </ion-list>
 
 </ion-content>

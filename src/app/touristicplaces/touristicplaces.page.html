@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>touristicplaces</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-img [src]="place.imgcover" style="width: 100%; height: 70%;margin-top:-20%;filter: brightness(0.9);"></ion-img>
+  <h1 style="text-align: center;
+  position: absolute;
+  left: 5%;
+  color: white;
+  font-size: 28px;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 56%;"> {{ place.name }} </h1>
+  <ion-fab vertical="top" horizontal="start" slot="fixed" [routerLink]="['/home']" >
+    <ion-fab-button size="small">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- Share -->
+  <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="share()" >
+    <ion-fab-button size="small">
+      <ion-icon name="share-social"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div style="margin-left: 5%;margin-right: 5%;">
+    <h2 style="font-family: 'Montserrat';font-weight: 700;font-size: 20px;margin-top: -15%;">Informacion turística</h2>
+    <div [innerHTML]="place.description"></div>
+    <h2 style="font-family: 'Montserrat';font-weight: 700;font-size: 20px;">Galeria</h2>
+    <ion-slides mode="ios" pager="ios">
+      <ion-slide *ngFor="let a of place.gallery">
+        <ion-card>
+          <ion-img [src]="a.img"></ion-img>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+  </div>
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button (click)="savetoBookmark()" expand="block" fill="clear">
+            Guardar
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button (click)="navigate()" expand="block" fill="solid" color="primary">
+            Navegar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -6,7 +6,7 @@ import { ToastController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class ApiserviceService {
-  private url = 'http://localhost:3000/api'
+  private url = 'http://192.168.101.12:1337/'
   constructor(public http:HttpClient,public toast:ToastController) { }
 
   async createToast(header,color){
@@ -41,35 +41,52 @@ export class ApiserviceService {
 
   /* Lugares turisticos */
   getAllTouristicPlaces(){
-    return this.http.get(this.url + `/touristicplaces/all`)
+    return this.http.get<any>(this.url + `lugares-turisticos`)
   }
   getTouristicPlacesByID(id){
-    return this.http.get(this.url + `/touristicplaces/one/${id}`)
+    return this.http.get<any>(this.url + `lugares-turisticos/${id}`)
   }
 
   /* Actividades turisticas */
   getTouristicActivities(){
-    return this.http.get(this.url + '/touristic/activities')
+    return this.http.get<any>(this.url + 'actividades-turisticas')
   }
   getTouristicActivitiesByID(id){
-    return this.http.get(this.url + `/touristic/activities/id/${id}`)
+    return this.http.get<any>(this.url + `actividades-turisticas/${id}`)
   }
 
   /* Clima */
   getWeather(){
-    return this.http.get('https://api.openweathermap.org/data/2.5/weather?id=3435264&units=metric&lang=sp&appid=60ebd6a1e520851d0ac5e23fb9533e53')
+    return this.http.get<any>('https://api.openweathermap.org/data/2.5/weather?id=3435264&units=metric&lang=sp&appid=60ebd6a1e520851d0ac5e23fb9533e53')
   }
 
-  /* Comercios */
-  GetCategories(){
-    return this.http.get(this.url + '/category/all')
+  /* Gastronomia */
+  getGastronomia(){
+    return this.http.get<any>(this.url + `/gastronomias`)
   }
-  GetSpecificCategory(id){
-    return this.http.get(this.url + `/category/one/${id}`)
+  getOneGastronomia(id){
+    return this.http.get<any>(this.url + `/gastronomias/${id}`)
   }
-  getSpecificComercio(idCategoria,idComercio){
-    return this.http.get(this.url + `/category/id/${idCategoria}/commerce/${idComercio}`)
+
+  /* Alojamientos */
+  Alojamientos(){
+    return this.http.get<any>(this.url + `/alojamientos`)
   }
+  getOneAlojamiento(id){
+    return this.http.get<any>(this.url + `/alojamientos/${id}`)
+  }
+
+  /* Compras */
+  getComercios(){
+    return this.http.get<any>(this.url + `/compras`)
+  }
+  getComerciosByID(id){
+    return this.http.get<any>(this.url + `/compras/${id}`)
+  }
+  getComerciosCategory(categoryName){
+    return this.http.get<any>(this.url + `/compras/category/${categoryName}`)
+  }
+
 
 
 
