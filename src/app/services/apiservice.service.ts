@@ -6,7 +6,7 @@ import { ToastController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class ApiserviceService {
-  private url = 'http://192.168.101.12:1337/'
+  private url = 'http://localhost:1337/'
   constructor(public http:HttpClient,public toast:ToastController) { }
 
   async createToast(header,color){
